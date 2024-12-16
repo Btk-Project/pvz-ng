@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dok7bxha2y3ml"]
+
+[ext_resource type="Texture2D" uid="uid://dh8plj3jhkock" path="res://assets/reanim/Blover_blink.png" id="1_tatou"]
+[ext_resource type="Texture2D" uid="uid://bh5hp0nm4twuw" path="res://assets/reanim/Blover_stem1.png" id="1_udkvo"]
+[ext_resource type="Texture2D" uid="uid://bw3rsxewmi5yt" path="res://assets/reanim/Blover_petal.png" id="2_ot5kn"]
+[ext_resource type="Texture2D" uid="uid://djwxbpyvpe43r" path="res://assets/reanim/Blover_dirt_back.png" id="4_qnff3"]
+[ext_resource type="Texture2D" uid="uid://vplwk7eqix43" path="res://assets/reanim/Blover_dirt_front.png" id="5_l5umo"]
+[ext_resource type="Texture2D" uid="uid://cubw36fh42smk" path="res://assets/reanim/Blover_head.png" id="7_db6lu"]
+[ext_resource type="Texture2D" uid="uid://u3p0jnrqo152" path="res://assets/reanim/Blover_stem2.png" id="8_omuma"]
+
+[node name="blover" type="Plant"]
+
+[node name="blover_dirt_back" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("4_qnff3")
+
+[node name="blover_dirt_front" type="Sprite2D" parent="blover_dirt_back"]
+position = Vector2(0, 3)
+texture = ExtResource("5_l5umo")
+
+[node name="blover_stem2" type="Sprite2D" parent="."]
+texture = ExtResource("8_omuma")
+offset = Vector2(-7, -9)
+
+[node name="blover_blink" type="Sprite2D" parent="blover_stem2"]
+texture = ExtResource("1_tatou")
+offset = Vector2(-5, -37)
+
+[node name="blover_stem1" type="Sprite2D" parent="blover_stem2"]
+texture = ExtResource("1_udkvo")
+offset = Vector2(-6, -27)
+
+[node name="blover_petal" type="Sprite2D" parent="blover_stem2/blover_stem1"]
+position = Vector2(-6, -51)
+texture = ExtResource("2_ot5kn")
+offset = Vector2(0, -31)
+
+[node name="blover_petal" type="Sprite2D" parent="blover_stem2/blover_stem1/blover_petal"]
+position = Vector2(3, 1)
+rotation = 2.0944
+texture = ExtResource("2_ot5kn")
+offset = Vector2(0, -31)
+
+[node name="blover_petal" type="Sprite2D" parent="blover_stem2/blover_stem1/blover_petal/blover_petal"]
+position = Vector2(3.73205, 2.4641)
+rotation = 2.0944
+texture = ExtResource("2_ot5kn")
+offset = Vector2(0, -30)
+
+[node name="blover_head" type="Sprite2D" parent="blover_stem2/blover_stem1"]
+position = Vector2(-6, -50)
+texture = ExtResource("7_db6lu")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="blover_stem2/blover_stem1"]
+remote_path = NodePath("..")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="blover_stem2/blover_stem1/RemoteTransform2D"]
+remote_path = NodePath("../../blover_petal")

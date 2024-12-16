@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dld7cpqe001i6"]
+
+[ext_resource type="Texture2D" uid="uid://b8xm3fodyibob" path="res://assets/images/titlescreen.jpg" id="1_7kgph"]
+[ext_resource type="PackedScene" uid="uid://djjgovcx0amdw" path="res://godot-src/plant.tscn" id="2_8auey"]
+
+[node name="root" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7kgph")
+
+[node name="Plant" parent="." instance=ExtResource("2_8auey")]
